@@ -1,8 +1,25 @@
 name: Events Demo 1
+
 on: # tiggering workflow on various events with activity types: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-activity-types
   pull_request: # list of activity types that will trigger the workflow
     types: [opened, edited] # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+    # branches can also be added to filter the branches that should trigger the workflow on pull_request event
+    branches: # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore
+      - master
+      - 'dev-*' # dynamic branch name to match all branches starting with dev- which should trigger this workflow
+      - 'feat/**' # dynamic branch name to match all branches starting with feat/ which should trigger this workflow 
   workflow_dispatch: # this has to be in same syntax as other with activity types even though it has no details
+  push:
+    branches: # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore
+      - master
+    # single * will include every character except "/", ** will include every character including "/"
+      - 'dev-*' # dynamic branch name to match all branches starting with dev- which should trigger this workflow
+      - 'feat/**' # dynamic branch name to match all branches starting with feat/ which should trigger this workflow 
+    paths: # to only trigger this workflow when the changes are made to this path/file and targets above mentioned branches
+      - 'src/**'
+      - 'test/**'
+    paths-ignore: # to only trigger this workflow when the changes are NOT made to this path/file and targets above mentioned branches
+      - '.github/workflows/*' # to ignore changes made to github workflow files
 
 jobs:
   deploy:
