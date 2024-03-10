@@ -1,4 +1,4 @@
-# module-forth-github-actions
+# module-fourth-github-actions
  
 Resources:
 - [Examples and cheat sheet](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-activity-types)
