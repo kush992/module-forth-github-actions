@@ -1,5 +1,9 @@
 name: Events Demo 1
-on: ...
+on: # tiggering workflow on various events with activity types: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-activity-types
+  pull_request: # list of activity types that will trigger the workflow
+    types: [opened, edited] # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+  workflow_dispatch: # this has to be in same syntax as other with activity types even though it has no details
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
