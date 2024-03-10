@@ -10,6 +10,7 @@ function App() {
         </div>
         <h1>Learn & Master GitHub Actions</h1>
 		{/* Comment to skip workflow when pushing */}
+		{/* comment to cancel workflow manually */}
       </header>
       <MainContent />
     </>
