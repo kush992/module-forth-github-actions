@@ -9,6 +9,7 @@ function App() {
           <img src={logo} />
         </div>
         <h1>Learn & Master GitHub Actions</h1>
+		{/* Comment to skip workflow when pushing */}
       </header>
       <MainContent />
     </>
