@@ -15,9 +15,11 @@ on: # tiggering workflow on various events with activity types: https://docs.git
     # single * will include every character except "/", ** will include every character including "/"
       - 'dev-*' # dynamic branch name to match all branches starting with dev- which should trigger this workflow
       - 'feat/**' # dynamic branch name to match all branches starting with feat/ which should trigger this workflow 
-    paths: # to only trigger this workflow when the changes are made to this path/file and targets above mentioned branches
-      - 'src/**'
-      - 'test/**'
+
+    # ONLY ONE of the following can be used at a time
+    # paths: # to only trigger this workflow when the changes are made to this path/file and targets above mentioned branches
+    #   - 'src/**'
+    #   - 'test/**'
     paths-ignore: # to only trigger this workflow when the changes are NOT made to this path/file and targets above mentioned branches
       - '.github/workflows/*' # to ignore changes made to github workflow files
 
